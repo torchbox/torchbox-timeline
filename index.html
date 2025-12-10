@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Torchbox Timeline</title>
 
-    <!-- styles -->
-    <link href="/src/css/style.css" rel="stylesheet">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -17,19 +14,45 @@
 
 <header class="w-full bg-black">
     <div class="container flex justify-start items-center py-5">
-        <svg class="text-white w-[147px] h-[39px]" focusable="false">
-            <title>Torchbox</title>
-            <use xlink:href="#logo-torchbox" href="#logo-torchbox"></use>
-        </svg>
+        <a href="https://www.torchbox.com" aria-label="Torchbox" class="text-white hover:text-torchbox">
+            <svg class="w-[147px] h-[39px]" focusable="false">
+                <title>Torchbox</title>
+                <use xlink:href="#logo-torchbox" href="#logo-torchbox"></use>
+            </svg>
+        </a>
     </div>
 </header>
 
 <main>
+    <!-- Desktop Timeline -->
+    <!-- hidden for now
     <div class="text-center text-lg relative h-[116px] w-[225px]">
         <p class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-navy text-lg z-10 text-50 font-bold">2000</p>
         <svg class="kaboom text-aqua">
             <use xlink:href="#kaboom"/>
         </svg>
+    </div>
+    -->
+
+    <!-- Mobile Timeline -->
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
     </div>
 </main>
 
