@@ -23,9 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: {
                 trigger: desktopContainer,
                 pin: true,
-                scrub: 1,
-                snap: 1 / (slides.length - 1),
-                end: () => '+=' + (track.scrollWidth - desktopContainer.clientWidth),
+                scrub: 0.7,
+                snap: {
+                    snapTo: 1 / (slides.length - 1),
+                    duration: 0.12,
+                    ease: 'power1.out',
+                    delay: 0
+                },
+                end: () => '+=' + (track.scrollWidth - desktopContainer.clientWidth) * 0.5,
             },
         });
     }
