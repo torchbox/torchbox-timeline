@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<header class="w-full bg-black">
+<header class="w-full bg-black text-white">
     <div class="container flex justify-start items-center py-5">
         <a href="https://www.torchbox.com" aria-label="Torchbox" class="text-white hover:text-torchbox">
             <svg class="w-[147px] h-[39px]" focusable="false">
@@ -23,42 +23,95 @@
     </div>
 </header>
 
-<main>
-    <!-- Desktop Timeline -->
-    <!-- hidden for now
-    <div class="text-center text-lg relative h-[116px] w-[225px]">
-        <p class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-navy text-lg z-10 text-50 font-bold">2000</p>
-        <svg class="kaboom text-aqua">
-            <use xlink:href="#kaboom"/>
-        </svg>
-    </div>
-    -->
-
-    <!-- Mobile Timeline -->
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            ...
+<main class="min-h-screen bg-black text-white">
+    <!-- Mobile Carousel -->
+    <section class="mobile-carousel relative sm:hidden">
+        <div class="swiper">
+            <div class="swiper-wrapper pb-10">
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/1.jpg" alt="Carousel slide 1">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/2.jpg" alt="Carousel slide 2">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/3.jpg" alt="Carousel slide 3">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/4.jpg" alt="Carousel slide 4">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/5.jpg" alt="Carousel slide 5">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/6.jpg" alt="Carousel slide 6">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/7.jpg" alt="Carousel slide 7">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/8.jpg" alt="Carousel slide 8">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/9.jpg" alt="Carousel slide 9">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/10.jpg" alt="Carousel slide 10">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/11.jpg" alt="Carousel slide 11">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/12.jpg" alt="Carousel slide 12">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/13.jpg" alt="Carousel slide 13">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/14.jpg" alt="Carousel slide 14">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/15.jpg" alt="Carousel slide 15">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/16.jpg" alt="Carousel slide 16">
+                </div>
+                <div class="swiper-slide rounded-none">
+                    <img src="/images/carousel/17.jpg" alt="Carousel slide 17">
+                </div>
+            </div>
         </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination" data-swiper-pagination></div>
+    </section>
 
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-
-        <!-- If we need scrollbar -->
-        <div class="swiper-scrollbar"></div>
-    </div>
+    <!-- Desktop Horizontal Scroll -->
+    <section class="desktop-scroll hidden sm:block overflow-hidden relative">
+        <div class="desktop-track flex h-full">
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#0f172a;">Slide 01</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#1f2937;">Slide 02</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#2563eb;">Slide 03</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#10b981;">Slide 04</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#f59e0b;">Slide 05</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#ef4444;">Slide 06</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#8b5cf6;">Slide 07</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#14b8a6;">Slide 08</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#e11d48;">Slide 09</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#a3e635;">Slide 10</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#22d3ee;">Slide 11</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#c026d3;">Slide 12</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#fb7185;">Slide 13</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#94a3b8;">Slide 14</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#0ea5e9;">Slide 15</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#f97316;">Slide 16</div>
+            <div class="desktop-slide flex items-center justify-center text-white text-4xl font-semibold" style="background:#4ade80;">Slide 17</div>
+        </div>
+    </section>
 </main>
 
 <!-- JS bundle-->
 <script type="module" src="/src/main.js"></script>
 
+<!--Sprites-->
 <svg style="display: none;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none">
     <symbol id="kaboom" width="225" height="116" viewBox="0 0 225 116">
         <path d="M18.8794 8.9969V30.5895L0.955921 31.6691L16.7286 49.0631L0 61.0589L14.0998 66.2172L2.50929 85.4105L15.0558 80.1324L16.7286 113.481L42.5385 89.6091L65.8391 110.002L76.3542 92.848L95.9506 113.481L108.975 97.4064L121.88 112.041L133.71 95.727L147.69 116L157.608 99.6856L191.901 112.041C186.206 105.644 174.958 92.848 175.531 92.848C176.105 92.848 202.854 91.2485 216.158 90.4488L198.115 72.0951L225 63.938L194.052 45.1044L210.542 33.2285L181.984 24.2316L193.216 7.43744L155.815 15.1148L145.659 0L120.207 17.394L108.975 3.59876L95.9506 17.394L75.2788 4.67839L73.7254 15.1148L46.6012 7.43744L44.6893 20.6329L18.8794 8.9969Z"
