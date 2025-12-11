@@ -33,7 +33,7 @@ export default function MobileCarousel(): JSX.Element {
   const pagination = { el: '.swiper-pagination', clickable: true };
 
   return (
-    <section className="mobile-carousel relative sm:hidden">
+    <section className="mobile-carousel relative sm:hidden bg-navy">
       <div className="swiper">
         <Swiper
           modules={[Pagination]}
@@ -57,7 +57,7 @@ export default function MobileCarousel(): JSX.Element {
         </Swiper>
       </div>
 
-      <div className="swiper-pagination bottom-[unset]! top-[unset]! w-full flex flex-wrap gap-2.5 relative bg-black justify-center  py-5"></div>
+      <div className="swiper-pagination bottom-[unset]! top-[unset]! w-full flex flex-wrap gap-2.5 relative bg-black justify-center py-5 "></div>
     </section>
   );
 }

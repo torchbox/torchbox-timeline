@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-gradient-to-br from-black to-navy  py-10">
+        <footer className="w-full bg-gradient-to-br from-black to-navy  py-16">
             <div className="container flex flex-col-reverse items-start gap-10 md:flex-row md:justify-between">
 
                 {/* Logos */}
