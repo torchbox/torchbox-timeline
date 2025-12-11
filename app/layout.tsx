@@ -47,7 +47,7 @@ export default function RootLayout({
                         </h1>
                         <p className="mt-6 mtext-pretty text-lg/8 text-sky max-w-3xl">
                             This year, Torchbox turns 25, a milestone that means a lot to us as we reflect on the people, organisations and communities we’ve been so lucky to work with since Tom and Olly founded the company back in 2000.
-                            This wonderful timeline shares just a handful of moments and clients from the past 25 years. There are far more than we could ever fit into one post, and we’re grateful to every client, partner, and co-owner
+                            This wonderful timeline shares just a handful of moments and clients from the past 25 years. There are far more than we could ever fit into this round-up, and we’re grateful to every client, partner, and co-owner
                             who has been part of our story.
                         </p>
                     </div>
