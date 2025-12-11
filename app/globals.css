@@ -62,7 +62,6 @@ body {
     /* allow slide to size to its content (the image) */
     flex: 0 0 auto;
     /* remove fixed widths so images determine width */
-    /* min-width and max-width removed intentionally */
     position: relative;
     height: 100%;
     overflow: hidden;

@@ -35,18 +35,13 @@ const DesktopTimeline = () => {
                     <div
                         key={slide.id}
                         className={`desktop-slide relative flex items-center justify-center text-white ${slide.bgClass ?? ''}`}
-                        aria-label={slide.alt ?? slide.label}
                     >
                         <img
                             src={slide.src}
-                            alt={slide.alt ?? slide.label}
+                            alt={slide.alt}
                             loading="lazy"
                             className="h-full w-auto object-cover"
                         />
-                        {/* visible label */}
-                        <span className="absolute z-10 p-4">{slide.label}</span>
-                        {/* screen-reader-only descriptive text copied from mobile carousel alt tags */}
-                        <span className="sr-only">{slide.alt ?? slide.label}</span>
                     </div>
                 ))}
             </div>
