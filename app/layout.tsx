@@ -3,6 +3,7 @@ import {Outfit} from "next/font/google";
 import "./globals.css";
 import Sprites from "@/app/components/sprites";
 import DesktopScrollEffect from "@/app/components/desktopScrollEffect";
+import Footer from "@/app/components/footer";
 
 const outfit = Outfit({
     variable: "--font-outfit",
@@ -55,6 +56,8 @@ export default function RootLayout({
         </header>
 
         {children}
+
+        <Footer/>
 
         <DesktopScrollEffect/>
 

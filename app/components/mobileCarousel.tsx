@@ -37,9 +37,8 @@ export default function MobileCarousel(): JSX.Element {
       <div className="swiper">
         <Swiper
           modules={[Pagination]}
-          slidesPerView={1.05}
-          centeredSlides={true}
-          loop={true}
+          slidesPerView={1.10}
+          autoplay={{ delay: 3000 }}
           spaceBetween={0}
           pagination={pagination}
           className="swiper-react"
@@ -58,7 +57,7 @@ export default function MobileCarousel(): JSX.Element {
         </Swiper>
       </div>
 
-      <div className="swiper-pagination"></div>
+      <div className="swiper-pagination bottom-[unset]! top-[unset]! w-full flex flex-wrap gap-2.5 relative bg-black justify-center  py-5"></div>
     </section>
   );
 }

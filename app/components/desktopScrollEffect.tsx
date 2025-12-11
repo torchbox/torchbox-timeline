@@ -16,32 +16,44 @@ export default function DesktopScrollEffect(): null {
 
         if (!desktopContainer || !track || slides.length === 0) return;
 
-        const ctx = gsap.context(() => {
-            const totalSlides = slides.length;
-            const containerWidth = desktopContainer.offsetWidth;
+        // helper to refresh ScrollTrigger safely
+        const safeRefresh = () => {
+            try {
+                ScrollTrigger.refresh();
+            } catch (e) {
+                // ignore
+            }
+        };
 
-            const scrollDistance = containerWidth * (totalSlides - 1);
+        const ctx = gsap.context(() => {
+            // compute scroll distance from actual track width so layouts (like footer) don't affect it
+            const totalScroll = track.scrollWidth - desktopContainer.clientWidth;
 
             gsap.to(track, {
-                x: () => -(track.scrollWidth - desktopContainer.clientWidth),
+                x: () => -totalScroll,
                 ease: 'none',
+                invalidateOnRefresh: true,
                 scrollTrigger: {
                     trigger: desktopContainer,
                     pin: true,
                     scrub: 0.7,
-                    // snap: {
-                    //     snapTo: (value) => {
-                    //         const step = 1 / (totalSlides - 1);
-                    //         return Math.round(value / step) * step;
-                    //     },
-                    //     duration: 0.15,
-                    //     ease: 'power1.out',
-                    //     delay: 0,
-                    // },
-                    end: `+=${scrollDistance}`,
+                    end: () => `+=${totalScroll}`,
                 },
             });
         }, desktopContainer);
+
+        // Refresh on window load (images/styles could change layout)
+        window.addEventListener('load', safeRefresh);
+
+        // Refresh when any image loads (helps when footer images load after initial render)
+        const imgs = Array.from(document.images);
+        imgs.forEach((img) => img.addEventListener('load', safeRefresh));
+
+        // Watch for body size changes and refresh ScrollTrigger
+        const resizeObserver = new ResizeObserver(() => {
+            safeRefresh();
+        });
+        resizeObserver.observe(document.body);
 
         return () => {
             try {
@@ -49,6 +61,13 @@ export default function DesktopScrollEffect(): null {
             } catch {}
             try {
                 ctx.revert();
+            } catch {}
+
+            // cleanup listeners
+            window.removeEventListener('load', safeRefresh);
+            imgs.forEach((img) => img.removeEventListener('load', safeRefresh));
+            try {
+                resizeObserver.disconnect();
             } catch {}
         };
     }, []);

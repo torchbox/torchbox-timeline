@@ -59,6 +59,22 @@ body {
 }
 
 .desktop-slide {
-    min-width: 1080px;
-    max-width: 1080px;
+    /* allow slide to size to its content (the image) */
+    flex: 0 0 auto;
+    /* remove fixed widths so images determine width */
+    /* min-width and max-width removed intentionally */
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ensure images keep their aspect ratio, match container height, and don't stretch */
+.desktop-slide img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    display: block;
 }
