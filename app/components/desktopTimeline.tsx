@@ -1,11 +1,15 @@
 import React from 'react'
+import Image from "next/image";
 
 type Slide = {
     id: number
     src: string
     bgClass?: string
-    alt?: string
+    alt: string
 }
+
+const isProd = process.env.NODE_ENV === 'production'
+const baseUrl = isProd ? '/torchbox-timeline' : ''
 
 const slides: Slide[] = [
     { id: 1, src: '/images/carousel/1.jpg', bgClass: 'bg-navy', alt: 'Tom and Olly pictured as the co-founders of Torchbox' },
@@ -36,8 +40,8 @@ const DesktopTimeline = () => {
                         key={slide.id}
                         className={`desktop-slide relative flex items-center justify-center text-white ${slide.bgClass ?? ''}`}
                     >
-                        <img
-                            src={slide.src}
+                        <Image
+                            src={baseUrl + slide.src}
                             alt={slide.alt}
                             loading="lazy"
                             className="h-full w-auto object-cover"
