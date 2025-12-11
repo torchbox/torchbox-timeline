@@ -40,7 +40,6 @@ const DesktopTimeline = () => {
                         <img
                             src={baseUrl + slide.src}
                             alt={slide.alt}
-                            loading="lazy"
                             className="h-full w-auto object-cover"
                         />
                     </div>
