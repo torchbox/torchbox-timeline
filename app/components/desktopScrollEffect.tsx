@@ -27,17 +27,17 @@ export default function DesktopScrollEffect(): null {
 
         const ctx = gsap.context(() => {
             // compute scroll distance from actual track width so layouts (like footer) don't affect it
-            const totalScroll = track.scrollWidth - desktopContainer.clientWidth;
+            // NOTE: calculate dynamically inside the getter functions below so invalidate/refresh picks up new sizes
 
             gsap.to(track, {
-                x: () => -totalScroll,
+                x: () => -(track.scrollWidth - desktopContainer.clientWidth),
                 ease: 'none',
                 invalidateOnRefresh: true,
                 scrollTrigger: {
                     trigger: desktopContainer,
                     pin: true,
                     scrub: 0.7,
-                    end: () => `+=${totalScroll}`,
+                    end: () => `+=${track.scrollWidth - desktopContainer.clientWidth}`,
                 },
             });
         }, desktopContainer);
@@ -55,6 +55,17 @@ export default function DesktopScrollEffect(): null {
         });
         resizeObserver.observe(document.body);
 
+        // Throttled resize handler to recalc timeline length on window resize
+        let resizeTimeout: number | null = null;
+        const onResize = () => {
+            if (resizeTimeout !== null) return;
+            resizeTimeout = window.setTimeout(() => {
+                safeRefresh();
+                resizeTimeout = null;
+            }, 100);
+        };
+        window.addEventListener('resize', onResize);
+
         return () => {
             try {
                 ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -69,6 +80,12 @@ export default function DesktopScrollEffect(): null {
             try {
                 resizeObserver.disconnect();
             } catch {}
+
+            window.removeEventListener('resize', onResize);
+            if (resizeTimeout !== null) {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = null;
+            }
         };
     }, []);
 
