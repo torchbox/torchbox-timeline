@@ -1,2 +1,2 @@
 export const baseUrl =
-    process.env.NODE_ENV === 'production' ? '/torchbox-timeline' : ''
+    process.env.NODE_ENV === 'production' ? '' : ''
