@@ -1,4 +1,8 @@
 import Image from "next/image";
+import {baseUrl} from "@/app/lib/utils";
+
+// Add base URL helper for image paths. Uses NEXT_PUBLIC_BASE_URL if provided.
+const withBase = (path: string) => (baseUrl ? `${baseUrl}${path}` : path);
 
 export default function Footer() {
     return (
@@ -13,7 +17,7 @@ export default function Footer() {
                             className="block"
                         >
                             <Image
-                                src="/images/certified_b_corporation_b_corp_.max-100x100.format-webp_3bc1uST.webp"
+                                src={withBase('/images/certified_b_corporation_b_corp_.max-100x100.format-webp_3bc1uST.webp')}
                                 alt="Certified B Corporation"
                                 width={59}
                                 height={100}
@@ -28,7 +32,7 @@ export default function Footer() {
                             className="block"
                         >
                             <Image
-                                src="/images/2022-top25_best-mid-sized-compa.max-100x100.format-webp_Xl42X5Q.webp"
+                                src={withBase('/images/2022-top25_best-mid-sized-compa.max-100x100.format-webp_Xl42X5Q.webp')}
                                 alt="2022 Top 25 Best Mid Sized Companies"
                                 width={150}
                                 height={100}
@@ -43,7 +47,7 @@ export default function Footer() {
                             className="block"
                         >
                             <Image
-                                src="/images/EOA_Members_RGB_PNG_EOA_Members.max-200x100.format-webp.webp"
+                                src={withBase('/images/EOA_Members_RGB_PNG_EOA_Members.max-200x100.format-webp.webp')}
                                 alt="Employee Owned Agency"
                                 width={200}
                                 height={84}

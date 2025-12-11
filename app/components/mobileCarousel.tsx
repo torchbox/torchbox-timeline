@@ -6,6 +6,7 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import {JSX} from "react";
+import {baseUrl} from "@/app/lib/utils";
 
 const slides = [
   { src: '/images/carousel/1.jpg', alt: 'Tom and Olly pictured as the co-founders of Torchbox' },
@@ -46,7 +47,7 @@ export default function MobileCarousel(): JSX.Element {
           {slides.map((slide, idx) => (
             <SwiperSlide key={idx} className="rounded-none">
               <Image
-                src={slide.src}
+                src={baseUrl + slide.src}
                 alt={slide.alt}
                 width={DEFAULT_IMAGE_WIDTH}
                 height={DEFAULT_IMAGE_HEIGHT}

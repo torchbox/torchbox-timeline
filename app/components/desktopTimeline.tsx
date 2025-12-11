@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from "next/image";
+import {baseUrl} from "@/app/lib/utils";
 
 type Slide = {
     id: number
@@ -7,9 +8,6 @@ type Slide = {
     bgClass?: string
     alt: string
 }
-
-const isProd = process.env.NODE_ENV === 'production'
-const baseUrl = isProd ? '/torchbox-timeline' : ''
 
 const slides: Slide[] = [
     { id: 1, src: '/images/carousel/1.jpg', bgClass: 'bg-navy', alt: 'Tom and Olly pictured as the co-founders of Torchbox' },
