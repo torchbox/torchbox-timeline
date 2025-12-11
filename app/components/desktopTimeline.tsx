@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from "next/image";
 import {baseUrl} from "@/app/lib/utils";
 
 type Slide = {
@@ -38,7 +37,7 @@ const DesktopTimeline = () => {
                         key={slide.id}
                         className={`desktop-slide relative flex items-center justify-center text-white ${slide.bgClass ?? ''}`}
                     >
-                        <Image
+                        <img
                             src={baseUrl + slide.src}
                             alt={slide.alt}
                             loading="lazy"
