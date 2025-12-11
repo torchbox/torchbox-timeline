@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
     images: {
         unoptimized: true, // needed for GitHub Pages
     },
-    distDir: 'dist',
     basePath: isProd ? '/torchbox-timeline' : '',
     assetPrefix: isProd ? '/torchbox-timeline' : '',
 };
