@@ -38,22 +38,19 @@ export default function RootLayout({
                 </a>
             </div>
 
-            <div>
-                <div className="bg-gradient-to-br from-black to-navy">
-                    <div className="py-24 sm:py-32 container">
-                        <div className="max-w-4xl">
-                            <h1 className="text-balance text-4xl font-semibold tracking-tight text-sky sm:text-5xl max-w-4x">
-                                Celebrating 25 years of Torchbox {'🎉'}
-                            </h1>
-                            <p className="mt-6 mtext-pretty text-lg/8 text-sky max-w-3xl">
-                                This year, Torchbox turns 25, a milestone that means a lot to us as we reflect on the people, organisations and communities we’ve been so lucky to work with since Tom and Olly founded the company back in 2000.
-                                This wonderful timeline shares just a handful of moments and clients from the past 25 years. There are far more than we could ever fit into one post, and we’re grateful to every client, partner, and co-owner
-                                who has been part of our story.
-                            </p>
-                        </div>
+            <div className="bg-gradient-to-br from-black to-navy">
+                <div className="py-24 sm:py-32 container">
+                    <div className="max-w-4xl">
+                        <h1 className="text-balance text-4xl font-semibold tracking-tight text-sky sm:text-5xl max-w-4x">
+                            Celebrating 25 years of Torchbox {'🎉'}
+                        </h1>
+                        <p className="mt-6 mtext-pretty text-lg/8 text-sky max-w-3xl">
+                            This year, Torchbox turns 25, a milestone that means a lot to us as we reflect on the people, organisations and communities we’ve been so lucky to work with since Tom and Olly founded the company back in 2000.
+                            This wonderful timeline shares just a handful of moments and clients from the past 25 years. There are far more than we could ever fit into one post, and we’re grateful to every client, partner, and co-owner
+                            who has been part of our story.
+                        </p>
                     </div>
                 </div>
-
             </div>
         </header>
 
