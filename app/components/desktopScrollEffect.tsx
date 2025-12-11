@@ -29,18 +29,15 @@ export default function DesktopScrollEffect(): null {
                     trigger: desktopContainer,
                     pin: true,
                     scrub: 0.7,
-
-                    // Even snapping per slide
-                    snap: {
-                        snapTo: (value) => {
-                            const step = 1 / (totalSlides - 1);
-                            return Math.round(value / step) * step;
-                        },
-                        duration: 0.15,
-                        ease: 'power1.out',
-                        delay: 0,
-                    },
-
+                    // snap: {
+                    //     snapTo: (value) => {
+                    //         const step = 1 / (totalSlides - 1);
+                    //         return Math.round(value / step) * step;
+                    //     },
+                    //     duration: 0.15,
+                    //     ease: 'power1.out',
+                    //     delay: 0,
+                    // },
                     end: `+=${scrollDistance}`,
                 },
             });
