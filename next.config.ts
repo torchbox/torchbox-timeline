@@ -4,9 +4,6 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
     output: 'export', // key part for static export
-    basePath: '/portfolio-2026',
-    assetPrefix: '/portfolio-2026/',
-    reactStrictMode: true,
     images: {
         unoptimized: true, // needed for GitHub Pages
     },
