@@ -34,9 +34,9 @@ export default function DesktopScrollEffect(): null {
                 }
             };
 
-            const ctx = gsap.context(() => {
-                // compute scroll distance from actual track width so layouts (like footer) don't affect it
-                // NOTE: calculate dynamically inside the getter functions below so invalidate/refresh picks up new sizes
+            const updateScrollTrigger = () => {
+                // kill any existing triggers
+                ScrollTrigger.getAll().forEach((t) => t.kill());
 
                 gsap.to(track, {
                     x: () => -(track.scrollWidth - desktopContainer.clientWidth),
@@ -48,7 +48,7 @@ export default function DesktopScrollEffect(): null {
                         end: () => `+=${track.scrollWidth - desktopContainer.clientWidth}`,
                     },
                 });
-            }, desktopContainer);
+            }
 
             // Refresh on window load (images/styles could change layout)
             window.addEventListener('load', safeRefresh);
@@ -64,15 +64,14 @@ export default function DesktopScrollEffect(): null {
             resizeObserver.observe(document.body);
 
             // Throttled resize handler to recalc timeline length on window resize
-            let resizeTimeout: number | null = null;
             const onResize = () => {
-                if (resizeTimeout !== null) return;
-                resizeTimeout = window.setTimeout(() => {
-                    safeRefresh();
-                    resizeTimeout = null;
-                }, 100);
+                updateScrollTrigger();
+                safeRefresh()
             };
             window.addEventListener('resize', onResize);
+
+            // initial setup
+            updateScrollTrigger();
 
             // Return cleanup for this setup
             return () => {
@@ -80,6 +79,7 @@ export default function DesktopScrollEffect(): null {
                     ScrollTrigger.getAll().forEach((t) => t.kill());
                 } catch {}
                 try {
+                    // @ts-ignore
                     ctx.revert();
                 } catch {}
 
@@ -91,10 +91,6 @@ export default function DesktopScrollEffect(): null {
                 } catch {}
 
                 window.removeEventListener('resize', onResize);
-                if (resizeTimeout !== null) {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = null;
-                }
             };
         };
 
