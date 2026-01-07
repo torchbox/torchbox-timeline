@@ -64,9 +64,14 @@ export default function DesktopScrollEffect(): null {
             resizeObserver.observe(document.body);
 
             // Throttled resize handler to recalc timeline length on window resize
+            let resizeTimeout: number | null = null;
             const onResize = () => {
-                updateScrollTrigger();
-                safeRefresh()
+                if (resizeTimeout !== null) return;
+                resizeTimeout = window.setTimeout(() => {
+                    updateScrollTrigger();
+                    safeRefresh();
+                    resizeTimeout = null;
+                }, 100);
             };
             window.addEventListener('resize', onResize);
 
